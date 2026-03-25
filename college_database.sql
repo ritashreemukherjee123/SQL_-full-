@@ -2,7 +2,7 @@ CREATE DATABASE college;
 
 USE college;
 
-DROP TABLE student;   #For deleting the existing student table
+DROP TABLE student;   #For deleting/temporary deletion the existing student table
 
 CREATE TABLE student (
      rollno INT PRIMARY KEY,
