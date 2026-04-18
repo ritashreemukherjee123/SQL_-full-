@@ -141,7 +141,28 @@ SELECT
 FROM Customer_Churn
 WHERE Churn = 'Yes';
 
-#
+#------------------TOTAL CUSTOMER KPI: CUSTOMER BASE-------------------
+SELECT COUNT(customerID) AS total_customer
+FROM Customer_Churn;
+
+
+#--------------Feature engineering-----------
+SELECT 
+    customerID,
+    gender,
+    tenure,
+    MonthlyCharges,
+    TotalCharges,
+    Contract,
+    InternetService,
+    PaymentMethod,
+    CASE 
+        WHEN tenure <= 6 THEN 'New'
+        WHEN tenure <= 12 THEN 'Mid'
+        ELSE 'Loyal'
+    END AS tenure_group,
+    Churn
+FROM Customer_Churn;
 
 
 
